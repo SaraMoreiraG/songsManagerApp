@@ -1,0 +1,93 @@
+<div class="p-4 max-w-md mx-auto space-y-6">
+	<!-- Encabezado -->
+	<h1 class="text-xl font-bold text-gray-800">Nueva canción</h1>
+
+	<form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-4">
+
+	  <!-- Título -->
+	  <div>
+		<label class="block text-sm text-gray-700 mb-1">Título</label>
+		<input formControlName="title" type="text"
+			   placeholder="Indique el título de la canción"
+			   class="w-full border border-gray-300 rounded px-3 py-2" />
+	  </div>
+
+	  <!-- Artistas -->
+	  <div>
+		<label class="block text-sm text-gray-700 mb-1">Artistas</label>
+		<input formControlName="artist" type="text"
+			   placeholder="Indique el o los artistas"
+			   class="w-full border border-gray-300 rounded px-3 py-2" />
+	  </div>
+
+	  <!-- Géneros -->
+	  <div>
+		<label class="block text-sm text-gray-700 mb-1">Género</label>
+		<div class="flex gap-2">
+		  <input [(ngModel)]="newGenre" name="genreInput" type="text"
+				 placeholder="Añade un género"
+				 class="flex-1 border border-gray-300 rounded px-3 py-2" />
+		  <button type="button" (click)="addGenre()"
+				  class="bg-gray-200 rounded px-3 text-sm">+</button>
+		</div>
+
+		<div class="flex flex-wrap gap-2 pt-2">
+		  <span *ngFor="let genre of genres" class="bg-gray-100 border rounded-full px-2 py-0.5 text-xs">
+			{{ genre }}
+			<button type="button" (click)="removeGenre(genre)" class="ml-1 text-gray-500">×</button>
+		  </span>
+		</div>
+	  </div>
+
+	  <!-- Compañía discográfica -->
+	  <div>
+		<label class="block text-sm text-gray-700 mb-1">Compañía discográfica</label>
+		<div class="flex gap-2">
+		  <input [(ngModel)]="newLabel" name="labelInput" type="text"
+				 placeholder="Añade una compañía"
+				 class="flex-1 border border-gray-300 rounded px-3 py-2" />
+		  <button type="button" (click)="addLabel()"
+				  class="bg-gray-200 rounded px-3 text-sm">+</button>
+		</div>
+
+		<div class="flex flex-wrap gap-2 pt-2">
+		  <span *ngFor="let label of labels" class="bg-gray-100 border rounded-full px-2 py-0.5 text-xs">
+			{{ label }}
+			<button type="button" (click)="removeLabel(label)" class="ml-1 text-gray-500">×</button>
+		  </span>
+		</div>
+	  </div>
+
+	  <!-- País -->
+	  <div>
+		<label class="block text-sm text-gray-700 mb-1">País</label>
+		<input formControlName="country" type="text"
+			   placeholder="Indique la nacionalidad de la canción"
+			   class="w-full border border-gray-300 rounded px-3 py-2" />
+	  </div>
+
+	  <!-- Año -->
+	  <div>
+		<label class="block text-sm text-gray-700 mb-1">Año</label>
+		<input formControlName="year" type="number"
+			   placeholder="Indique el año"
+			   class="w-full border border-gray-300 rounded px-3 py-2" />
+	  </div>
+
+	  <!-- Puntuación -->
+	  <div>
+		<label class="block text-sm text-gray-700 mb-1">Puntuación</label>
+		<input formControlName="rating" type="number" min="0" max="10"
+			   placeholder="Indique la puntuación"
+			   class="w-full border border-gray-300 rounded px-3 py-2" />
+	  </div>
+
+	  <!-- Botones -->
+	  <div class="flex justify-end gap-2 pt-4">
+		<button type="button" routerLink="/songs"
+				class="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400">Cancelar</button>
+		<button type="submit"
+				class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Guardar</button>
+	  </div>
+	</form>
+  </div>
