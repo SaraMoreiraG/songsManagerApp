@@ -8,9 +8,9 @@ import { SongListComponent } from './pages/songList/songList.component';
 import { SongFormComponent } from './pages/songForm/songForm.component';
 
 const routes: Routes = [
-  { path: '', component: SongListComponent },
-  { path: 'new', component: SongFormComponent },
-  { path: 'edit/:id', component: SongFormComponent },
+  { path: '', component: SongListComponent, data: { title: 'Canciones' } },
+  { path: 'new', component: SongFormComponent, data: { title: 'Nueva canción' } },
+  { path: 'edit/:id', component: SongFormComponent, data: { title: 'Editar canción' } },
 ];
 
 @NgModule({
@@ -18,9 +18,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
-    HttpClientModule,
-    SongListComponent,
-    SongFormComponent
+    HttpClientModule
   ]
 })
-export class SongsModule {}
+export class SongsModule { }

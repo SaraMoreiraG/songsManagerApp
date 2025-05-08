@@ -1,14 +1,25 @@
 <!-- Cabecera fija -->
 <header class="bg-blue-600 text-white py-4 shadow-md mb-6">
   <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
-    <h1 class="text-2xl font-bold">Songs Manager 🎵</h1>
-    <nav class="space-x-4">
-      <a routerLink="/songs" routerLinkActive="underline text-yellow-300" class="hover:underline">Inicio</a>
-      <a routerLink="/songs/new" routerLinkActive="underline text-yellow-300" class="hover:underline">Añadir</a>
-    </nav>
+    <div class="flex items-center space-x-4">
+      <!-- Botón del menú -->
+      <button (click)="toggleMenu()" class="text-white focus:outline-none">
+        ☰
+      </button>
+
+      <!-- Título de la sección -->
+      <h2 class="text-xl font-semibold">{{ sectionTitle }}</h2>
+    </div>
   </div>
 </header>
 
+<div *ngIf="menuOpen" class="fixed inset-0 bg-black bg-opacity-50 z-40" (click)="menuOpen = false"></div>
+<aside *ngIf="menuOpen" class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg z-50 p-6 space-y-4">
+  <h3 class="text-lg font-bold mb-4">Menú</h3>
+  <a href="javascript:void(0)" (click)="navigateTo('/songs')" class="block hover:underline">Canciones</a>
+  <a href="javascript:void(0)" (click)="navigateTo('/songs/new')" class="block hover:underline">Añadir canción</a>
+
+</aside>
 <!-- Contenido principal -->
 <main class="px-4 max-w-7xl mx-auto">
   <router-outlet></router-outlet>
