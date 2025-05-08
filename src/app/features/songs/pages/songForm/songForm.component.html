@@ -1,93 +1,80 @@
-<div class="p-4 max-w-md mx-auto space-y-6">
-	<!-- Encabezado -->
-	<h1 class="text-xl font-bold text-gray-800">Nueva canción</h1>
-
+<div class="p-4 max-w-md mx-auto space-y-6 text-black">
+	<!-- Reactive form container -->
 	<form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-4">
 
-	  <!-- Título -->
-	  <div>
-		<label class="block text-sm text-gray-700 mb-1">Título</label>
-		<input formControlName="title" type="text"
-			   placeholder="Indique el título de la canción"
-			   class="w-full border border-gray-300 rounded px-3 py-2" />
-	  </div>
-
-	  <!-- Artistas -->
-	  <div>
-		<label class="block text-sm text-gray-700 mb-1">Artistas</label>
-		<input formControlName="artist" type="text"
-			   placeholder="Indique el o los artistas"
-			   class="w-full border border-gray-300 rounded px-3 py-2" />
-	  </div>
-
-	  <!-- Géneros -->
-	  <div>
-		<label class="block text-sm text-gray-700 mb-1">Género</label>
-		<div class="flex gap-2">
-		  <input [(ngModel)]="newGenre" name="genreInput" type="text"
-				 placeholder="Añade un género"
-				 class="flex-1 border border-gray-300 rounded px-3 py-2" />
-		  <button type="button" (click)="addGenre()"
-				  class="bg-gray-200 rounded px-3 text-sm">+</button>
+		<!-- Title input -->
+		<div>
+			<label class="block text-sm text-gray-800 mb-3">Título</label>
+			<input formControlName="title" type="text" placeholder="Indique el título de la canción"
+				class="w-full border-b border-gray-500 bg-transparent text-black placeholder-gray-500 focus:outline-none focus:border-black pb-2 mb-3" />
 		</div>
 
-		<div class="flex flex-wrap gap-2 pt-2">
-		  <span *ngFor="let genre of genres" class="bg-gray-100 border rounded-full px-2 py-0.5 text-xs">
-			{{ genre }}
-			<button type="button" (click)="removeGenre(genre)" class="ml-1 text-gray-500">×</button>
-		  </span>
-		</div>
-	  </div>
-
-	  <!-- Compañía discográfica -->
-	  <div>
-		<label class="block text-sm text-gray-700 mb-1">Compañía discográfica</label>
-		<div class="flex gap-2">
-		  <input [(ngModel)]="newLabel" name="labelInput" type="text"
-				 placeholder="Añade una compañía"
-				 class="flex-1 border border-gray-300 rounded px-3 py-2" />
-		  <button type="button" (click)="addLabel()"
-				  class="bg-gray-200 rounded px-3 text-sm">+</button>
+		<!-- Artist input -->
+		<div>
+			<label class="block text-sm text-gray-800 mb-3">Artistas</label>
+			<input formControlName="artist" type="text" placeholder="Indique el o los artistas"
+				class="w-full border-b border-gray-500 bg-transparent text-black placeholder-gray-500 focus:outline-none focus:border-black pb-2 mb-3" />
 		</div>
 
-		<div class="flex flex-wrap gap-2 pt-2">
-		  <span *ngFor="let label of labels" class="bg-gray-100 border rounded-full px-2 py-0.5 text-xs">
-			{{ label }}
-			<button type="button" (click)="removeLabel(label)" class="ml-1 text-gray-500">×</button>
-		  </span>
+		<!-- Genre input and list -->
+		<div>
+			<label class="block text-sm text-gray-800 mb-3">Género</label>
+
+			<!-- Input to add a new genre -->
+			<div class="flex gap-2">
+				<input formControlName="genreInput" type="text" placeholder="Añade un género"
+					class="flex-1 border-b border-gray-500 bg-transparent text-black placeholder-gray-500 focus:outline-none focus:border-black pb-2 mb-1" />
+				<button type="button" (click)="addGenre()"
+					class="bg-gray-200 hover:bg-gray-300 text-black rounded px-3 text-sm border border-gray-500">
+					+
+				</button>
+			</div>
+
+			<!-- Display added genres with remove button -->
+			<div class="flex flex-wrap gap-2 pt-2 mb-3">
+				<span *ngFor="let genre of genres"
+					class="bg-gray-100 border border-gray-500 rounded-full px-2 py-0.5 text-xs text-black">
+					{{ genre }}
+					<button type="button" (click)="removeGenre(genre)" class="ml-1 text-gray-600 hover:text-black">
+						×
+					</button>
+				</span>
+			</div>
 		</div>
-	  </div>
 
-	  <!-- País -->
-	  <div>
-		<label class="block text-sm text-gray-700 mb-1">País</label>
-		<input formControlName="country" type="text"
-			   placeholder="Indique la nacionalidad de la canción"
-			   class="w-full border border-gray-300 rounded px-3 py-2" />
-	  </div>
+		<!-- Duration input -->
+		<div>
+			<label class="block text-sm text-gray-800 mb-3">Duración</label>
+			<input formControlName="duration" type="text" placeholder="MM:SS"
+				class="w-full border-b border-gray-500 bg-transparent text-black placeholder-gray-500 focus:outline-none focus:border-black pb-2 mb-3" />
+		</div>
 
-	  <!-- Año -->
-	  <div>
-		<label class="block text-sm text-gray-700 mb-1">Año</label>
-		<input formControlName="year" type="number"
-			   placeholder="Indique el año"
-			   class="w-full border border-gray-300 rounded px-3 py-2" />
-	  </div>
+		<!-- Year input -->
+		<div>
+			<label class="block text-sm text-gray-800 mb-3">Año</label>
+			<input formControlName="year" type="number" placeholder="Indique el año"
+				class="w-full border-b border-gray-500 bg-transparent text-black placeholder-gray-500 focus:outline-none focus:border-black pb-2 mb-3" />
+		</div>
 
-	  <!-- Puntuación -->
-	  <div>
-		<label class="block text-sm text-gray-700 mb-1">Puntuación</label>
-		<input formControlName="rating" type="number" min="0" max="10"
-			   placeholder="Indique la puntuación"
-			   class="w-full border border-gray-300 rounded px-3 py-2" />
-	  </div>
+		<!-- Rating input -->
+		<div>
+			<label class="block text-sm text-gray-800 mb-3">Puntuación</label>
+			<input formControlName="rating" type="number" min="0" max="10" placeholder="Indique la puntuación"
+				class="w-full border-b border-gray-500 bg-transparent text-black placeholder-gray-500 focus:outline-none focus:border-black pb-2 mb-3" />
+		</div>
 
-	  <!-- Botones -->
-	  <div class="flex justify-end gap-2 pt-4">
-		<button type="button" routerLink="/songs"
-				class="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400">Cancelar</button>
-		<button type="submit"
-				class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Guardar</button>
-	  </div>
+		<!-- Form buttons -->
+		<div class="flex justify-end gap-2 pt-4">
+			<!-- Cancel button -->
+			<button type="button" routerLink="/songs"
+				class="bg-white border border-gray-500 text-black px-4 py-2 rounded hover:bg-gray-100">
+				Cancelar
+			</button>
+
+			<!-- Submit button -->
+			<button type="submit" class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800">
+				Guardar
+			</button>
+		</div>
 	</form>
-  </div>
+</div>

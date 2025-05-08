@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SongsApiService } from '../../services/songsApi.service';
 import { Song } from '../../models/song.model';
+import { SongCardComponent } from '../../components/songCard/songCard.component';
 
 @Component({
   selector: 'app-song-list',
   standalone: true,
-  imports: [CommonModule, RouterModule],
-  templateUrl: './songList.component.html',
-  styleUrls: ['./songList.component.css']
+  imports: [CommonModule, RouterModule, SongCardComponent],
+  templateUrl: './songList.component.html'
 })
 export class SongListComponent implements OnInit {
   // Injecting SongsApiService to interact with the API

@@ -1,14 +1,14 @@
 <!-- Cabecera fija -->
-<header class="bg-blue-600 text-white py-4 shadow-md mb-6">
+<header class="bg-white text-white py-4 shadow-md mb-6">
   <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
     <div class="flex items-center space-x-4">
       <!-- Botón del menú -->
-      <button (click)="toggleMenu()" class="text-white focus:outline-none">
+      <button (click)="toggleMenu()" class="text-black focus:outline-none">
         ☰
       </button>
 
       <!-- Título de la sección -->
-      <h2 class="text-xl font-semibold">{{ sectionTitle }}</h2>
+      <h2 class="text-black text-xl font-semibold">{{ sectionTitle }}</h2>
     </div>
   </div>
 </header>
@@ -17,7 +17,6 @@
 <aside *ngIf="menuOpen" class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg z-50 p-6 space-y-4">
   <h3 class="text-lg font-bold mb-4">Menú</h3>
   <a href="javascript:void(0)" (click)="navigateTo('/songs')" class="block hover:underline">Canciones</a>
-  <a href="javascript:void(0)" (click)="navigateTo('/songs/new')" class="block hover:underline">Añadir canción</a>
 
 </aside>
 <!-- Contenido principal -->
