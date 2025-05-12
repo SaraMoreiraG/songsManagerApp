@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Song } from '../../models/song.model';
 import { RouterModule } from '@angular/router';
@@ -11,4 +11,9 @@ import { RouterModule } from '@angular/router';
 })
 export class SongCardComponent {
   @Input() song!: Song;
+  @Output() clicked = new EventEmitter<string>();
+
+  onClick() {
+    this.clicked.emit(this.song.id);
+  }
 }

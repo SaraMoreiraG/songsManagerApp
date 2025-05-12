@@ -1,10 +1,12 @@
 export interface Song {
-	id: number;
+	id: string;
 	title: string;
-	poster: string;
-	genre: string[];
+	artist: string;
+	artistName?: string;
+	companyId?: number;
 	year: number;
 	duration: number;
 	rating: number;
-	artist: string;
+	genre: string[];
+	poster: string;
 }

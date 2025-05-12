@@ -1,21 +1,21 @@
 <!-- Song card link to the song detail/edit page -->
-<a [routerLink]="['/songs', song.id]" class="block hover:opacity-90 transition-all">
-
+<a [routerLink]="['/songs', song.id]" class="block h-full">
   <!-- Card container -->
-  <div class="bg-white border border-gray-300 rounded-xl p-4 mb-3 hover:bg-gray-100 hover:shadow-sm transition">
+  <div
+    class="h-full flex flex-col justify-between bg-white border border-gray-300 rounded-xl p-4 hover:bg-gray-100 hover:shadow-sm transition">
 
     <!-- Song title and artist -->
     <h2 class="text-base font-semibold text-black mb-2">
-      {{ song.title }} ({{ song.artist }})
+      {{ song.title }} ({{ song.artistName }})
     </h2>
 
-    <!-- Poster image as background (placeholder style) -->
-    <div class="w-full aspect-video bg-gray-200 mb-2" [style.backgroundImage]="'url(' + song.poster + ')'"
-      style="background-size: cover; background-position: center;">
+    <!-- Poster image as background (centered) -->
+    <div class="w-full aspect-video bg-gray-200 mb-2 flex items-center justify-center overflow-hidden rounded"
+      [style.backgroundImage]="'url(' + song.poster + ')'" style="background-size: cover; background-position: center;">
     </div>
 
     <!-- List of song genres -->
-    <div class="flex flex-wrap gap-2">
+    <div class="flex flex-wrap gap-2 mt-auto">
       <span *ngFor="let genre of song.genre"
         class="text-xs text-gray-800 bg-gray-100 border border-gray-300 rounded-full px-2 py-0.5">
         {{ genre }}

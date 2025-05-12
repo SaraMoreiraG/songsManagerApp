@@ -1,13 +1,13 @@
-<!-- Cabecera fija -->
+<!-- Fixed header -->
 <header class="bg-white text-white py-4 shadow-md mb-6">
   <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
     <div class="flex items-center space-x-4">
-      <!-- Botón del menú -->
+      <!-- Menu button -->
       <button (click)="toggleMenu()" class="text-black focus:outline-none">
         ☰
       </button>
 
-      <!-- Título de la sección -->
+      <!-- Secction title -->
       <h2 class="text-black text-xl font-semibold">{{ sectionTitle }}</h2>
     </div>
   </div>
@@ -17,14 +17,15 @@
 <aside *ngIf="menuOpen" class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg z-50 p-6 space-y-4">
   <h3 class="text-lg font-bold mb-4">Menú</h3>
   <a href="javascript:void(0)" (click)="navigateTo('/songs')" class="block hover:underline">Canciones</a>
+  <a href="javascript:void(0)" (click)="navigateTo('/artists')" class="block hover:underline">Artistas</a>
 
 </aside>
-<!-- Contenido principal -->
+<!-- Main content -->
 <main class="px-4 max-w-7xl mx-auto">
   <router-outlet></router-outlet>
 </main>
 
-<!-- Footer opcional -->
+<!-- Footer -->
 <footer class="text-center text-sm text-gray-500 mt-12 py-4">
-  © {{ currentYear }} Songs Manager. Hecho con Angular + Tailwind.
+  © {{ currentYear }} Songs Manager. Made by SaraMorDev with Angular + Tailwind.
 </footer>

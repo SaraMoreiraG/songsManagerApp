@@ -1,19 +1,32 @@
 {
   "songs": [
     {
-      "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
+      "id": "1",
+      "title": "Who did you think i was",
+      "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
+      "genre": [
+        "Pop",
+        "Rock",
+        "Alternative"
+      ],
+      "year": 2007,
+      "duration": 424,
+      "rating": 9.27,
+      "artist": 1
+    },
+    {
+      "id": "2",
       "title": "Penny Lane",
-      "artist": 2,
-      "year": 1967,
-      "duration": 303,
-      "rating": 8.99,
-      "genreInput": "",
+      "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
       "genre": [
         "Rock",
         "Pop",
         "Chill"
       ],
-      "id": "2"
+      "year": 1967,
+      "duration": 303,
+      "rating": 8.99,
+      "artist": 2
     },
     {
       "id": "3",
