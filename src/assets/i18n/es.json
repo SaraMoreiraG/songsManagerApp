@@ -1,5 +1,21 @@
 {
-	"TITLE": "Songs Manager",
-	"ADD_SONG": "Añadir Canción",
-	"DELETE": "Borrar"
+	"Back": "Atrás",
+	"Year": "Año",
+	"Duration": "Duración",
+	"Rating": "Puntuación",
+	"addRatting": "Puntua del 0 al 10",
+	"Songs": "Canciones",
+	"Title": "Título",
+	"addSongTitle": "Añade el nombre de la canción",
+	"titleWarning": "El título es obligatorio",
+	"Artist": "Artista",
+	"artistWarning": "El artista es obligatorio",
+	"Genre": "Género",
+	"addGenre": "Añade un género",
+	"durationWarning": "La duración es obligatoria",
+	"yearWarning": "El año debe estar entre 1900 y",
+	"ratingWarning": "La puntuación es obligatoria",
+	"Cancel": "Cancelar",
+	"Save": "Guardar"
+
 }

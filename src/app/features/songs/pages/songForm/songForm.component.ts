@@ -2,6 +2,7 @@ import { Component, effect, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { SongStore } from '../../state/song.store';
 import { ArtistApiService } from '../../../artists/services/artistApi.service';
 import { Song } from '../../models/song.model';
@@ -10,7 +11,7 @@ import { Artist } from '../../../artists/models/artist.model';
 @Component({
   selector: 'app-song-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, TranslateModule],
   templateUrl: './songForm.component.html',
 })
 export class SongFormComponent {

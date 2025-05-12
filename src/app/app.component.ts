@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { RouterOutlet, Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { filter, map, mergeMap } from 'rxjs/operators';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgIf],
+  imports: [RouterOutlet, NgIf, TranslateModule],
   templateUrl: './app.component.html',
 })
 export class AppComponent {
@@ -14,7 +15,14 @@ export class AppComponent {
   currentYear = new Date().getFullYear();
   menuOpen = false;
 
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private translate: TranslateService
+  ) {
+    this.translate.setDefaultLang('es');
+    this.translate.use('en');
+
     this.router.events
       .pipe(
         filter(event => event instanceof NavigationEnd),

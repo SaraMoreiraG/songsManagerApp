@@ -1,14 +1,15 @@
 import { Component, effect, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { SongStore } from '../../state/song.store';
 import { Song } from '../../models/song.model';
 
 @Component({
   selector: 'app-song-detail',
   standalone: true,
-  imports: [CommonModule, RouterModule],
-  templateUrl: './songDetail.component.html',
+  imports: [CommonModule, RouterModule, TranslateModule],
+  templateUrl: './songDetail.component.html'
 })
 export class SongDetailComponent {
   private store = inject(SongStore);

@@ -2,7 +2,7 @@
 	<!-- Back button -->
 	<div class="mb-2">
 		<button (click)="goBack()" class="text-sm text-black underline hover:text-gray-800 transition">
-			← VOLVER
+			← {{ 'Back' | translate }}
 		</button>
 	</div>
 
@@ -26,9 +26,9 @@
 
 	<!-- Song details -->
 	<div class="mb-2 text-sm text-gray-700">
-		<p><strong>Year:</strong> {{ song.year }}</p>
-		<p *ngIf="song.duration"><strong>Duration:</strong> {{ song.duration }}</p>
-		<p *ngIf="song.rating"><strong>Rating:</strong> {{ song.rating }}/10</p>
+		<p><strong>{{ 'Year' | translate }}:</strong> {{ song.year }}</p>
+		<p *ngIf="song.duration"><strong>{{ 'Duration' | translate }}:</strong> {{ song.duration }}</p>
+		<p *ngIf="song.rating"><strong>{{ 'Rating' | translate }}:</strong> {{ song.rating }}/10</p>
 	</div>
 
 	<!-- Action buttons: Edit & Delete -->

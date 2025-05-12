@@ -16,8 +16,8 @@
 <div *ngIf="menuOpen" class="fixed inset-0 bg-black bg-opacity-50 z-40" (click)="menuOpen = false"></div>
 <aside *ngIf="menuOpen" class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg z-50 p-6 space-y-4">
   <h3 class="text-lg font-bold mb-4">Menú</h3>
-  <a href="javascript:void(0)" (click)="navigateTo('/songs')" class="block hover:underline">Canciones</a>
-  <a href="javascript:void(0)" (click)="navigateTo('/artists')" class="block hover:underline">Artistas</a>
+  <a href="javascript:void(0)" (click)="navigateTo('/songs')" class="block hover:underline">{{ 'Songs' | translate }}</a>
+  <a href="javascript:void(0)" (click)="navigateTo('/artists')" class="block hover:underline">{{ 'Artists' | translate }}s</a>
 
 </aside>
 <!-- Main content -->

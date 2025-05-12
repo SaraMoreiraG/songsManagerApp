@@ -3,32 +3,32 @@
 
 		<!-- Title Field -->
 		<div>
-			<label class="block text-sm text-gray-800 mb-1">Title</label>
-			<input formControlName="title" type="text" placeholder="Enter the song title"
+			<label class="block text-sm text-gray-800 mb-1">{{ 'Title' | translate }}</label>
+			<input formControlName="title" type="text" [placeholder]="'addSongTitle' | translate"
 				class="w-full border-b border-gray-500 bg-transparent text-black placeholder-gray-500 focus:outline-none focus:border-black pb-2" />
 			<div *ngIf="form.get('title')?.touched && form.get('title')?.invalid" class="text-xs text-red-600 mt-1">
-				Title is required.
+				{{ 'titleWarning' | translate }}
 			</div>
 		</div>
 
 		<!-- Artist Select -->
 		<div>
-			<label class="block text-sm text-gray-800 mb-1">Artist</label>
+			<label class="block text-sm text-gray-800 mb-1">{{ 'Artist' | translate }}</label>
 			<select formControlName="artist"
 				class="w-full border-b border-gray-500 bg-transparent text-black focus:outline-none focus:border-black pb-2">
 				<option *ngFor="let artist of allArtists" [value]="artist.id">{{ artist.name }}</option>
 			</select>
 			<div *ngIf="form.get('duration')?.touched && form.get('duration')?.invalid"
-			class="text-xs text-red-600 mt-1">
-			Artist is required.
-		</div>
+				class="text-xs text-red-600 mt-1">
+				{{ 'artistWarning' | translate }}
+			</div>
 		</div>
 
 		<!-- Genres Input -->
 		<div>
-			<label class="block text-sm text-gray-800 mb-1">Genres</label>
+			<label class="block text-sm text-gray-800 mb-1">{{ 'Genre' | translate }}</label>
 			<div class="flex gap-2">
-				<input formControlName="genreInput" type="text" placeholder="Add a genre"
+				<input formControlName="genreInput" type="text" [placeholder]="'addGenre' | translate"
 					class="flex-1 border-b border-gray-500 bg-transparent text-black placeholder-gray-500 focus:outline-none focus:border-black pb-2" />
 				<button type="button" (click)="addGenre()"
 					class="bg-gray-200 hover:bg-gray-300 text-black rounded px-3 text-sm border border-gray-500">
@@ -49,32 +49,32 @@
 
 		<!-- Duration Field -->
 		<div>
-			<label class="block text-sm text-gray-800 mb-1">Duration</label>
+			<label class="block text-sm text-gray-800 mb-1">{{ 'Duration' | translate }}</label>
 			<input formControlName="duration" type="text" placeholder="MM:SS"
 				class="w-full border-b border-gray-500 bg-transparent text-black placeholder-gray-500 focus:outline-none focus:border-black pb-2" />
 			<div *ngIf="form.get('duration')?.touched && form.get('duration')?.invalid"
 				class="text-xs text-red-600 mt-1">
-				Duration is required.
+				{{ 'durationWarning' | translate }}
 			</div>
 		</div>
 
 		<!-- Year Field -->
 		<div>
-			<label class="block text-sm text-gray-800 mb-1">Year</label>
+			<label class="block text-sm text-gray-800 mb-1">{{ 'Year' | translate }}</label>
 			<input formControlName="year" type="number"
 				class="w-full border-b border-gray-500 bg-transparent text-black placeholder-gray-500 focus:outline-none focus:border-black pb-2" />
 			<div *ngIf="form.get('year')?.touched && form.get('year')?.invalid" class="text-xs text-red-600 mt-1">
-				Year must be between 1900 and {{ currentYear }}.
+				{{ 'yearWarning' | translate }} {{ currentYear }}.
 			</div>
 		</div>
 
 		<!-- Rating Field -->
 		<div>
-			<label class="block text-sm text-gray-800 mb-1">Rating</label>
-			<input formControlName="rating" type="number" min="0" max="10" placeholder="Rate from 0 to 10"
+			<label class="block text-sm text-gray-800 mb-1">{{ 'Rating' | translate }}</label>
+			<input formControlName="rating" type="number" min="0" max="10" [placeholder]="'addRatting' | translate"
 				class="w-full border-b border-gray-500 bg-transparent text-black placeholder-gray-500 focus:outline-none focus:border-black pb-2" />
 			<div *ngIf="form.get('rating')?.touched && form.get('rating')?.invalid" class="text-xs text-red-600 mt-1">
-				Rating must be between 0 and 10.
+				{{ 'ratingWarning' | translate }}
 			</div>
 		</div>
 
@@ -82,10 +82,10 @@
 		<div class="flex justify-end gap-2 pt-4">
 			<button type="button" (click)="goBack()"
 				class="bg-white border border-gray-500 text-black px-4 py-2 rounded hover:bg-gray-100">
-				Cancel
+				{{ 'Cancel' | translate }}
 			</button>
 			<button type="submit" class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800">
-				Save
+				{{ 'Save' | translate }}
 			</button>
 		</div>
 	</form>
