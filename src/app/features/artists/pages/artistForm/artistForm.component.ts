@@ -2,13 +2,14 @@ import { Component, effect, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { ArtistStore } from '../../state/artist.store';
 import { Artist } from '../../models/artist.model';
 
 @Component({
   selector: 'app-artist-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, TranslateModule],
   templateUrl: './artistForm.component.html',
 })
 export class ArtistFormComponent {
