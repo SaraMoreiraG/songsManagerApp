@@ -1,18 +1,18 @@
 <div class="p-4 max-w-7xl mx-auto">
 	<!-- Responsive card grid -->
 	<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 items-stretch">
-	  <app-song-card
-		*ngFor="let song of store.songs()"
-		[song]="song"
+	  <app-artist-card
+		*ngFor="let artist of store.artists()"
+		[artist]="artist"
 		(clicked)="goToDetail($event)">
-	  </app-song-card>
+	  </app-artist-card>
 	</div>
 
 	<!-- Floating action button -->
 	<button
 	  (click)="goToCreateForm()"
 	  class="fixed bottom-4 right-4 bg-white border-2 border-gray-700 w-12 h-12 rounded-full flex items-center justify-center text-2xl font-bold text-gray-700 shadow hover:bg-gray-100 transition"
-	  aria-label="Add song">
+	  aria-label="Add artist">
 	  +
 	</button>
   </div>

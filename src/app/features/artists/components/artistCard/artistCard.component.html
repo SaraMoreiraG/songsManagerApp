@@ -1,24 +1,24 @@
 <!-- Song card link to the song detail/edit page -->
-<a [routerLink]="['/songs', song.id]" class="block h-full">
+<a [routerLink]="['/artists', artist.id]" class="block h-full">
   <!-- Card container -->
   <div
     class="h-full flex flex-col justify-between bg-white border border-gray-300 rounded-xl p-4 hover:bg-gray-100 hover:shadow-sm transition">
 
     <!-- Song title and artist -->
     <h2 class="text-base font-semibold text-black mb-2">
-      {{ song.title }} ({{ song.artistName }})
+      {{ artist.name }}
     </h2>
 
     <!-- Poster image as background (centered) -->
     <div class="w-full aspect-video bg-gray-200 mb-2 flex items-center justify-center overflow-hidden rounded"
-      [style.backgroundImage]="'url(' + song.poster + ')'" style="background-size: cover; background-position: center;">
+      [style.backgroundImage]="'url(' + artist.img + ')'" style="background-size: cover; background-position: center;">
     </div>
 
-    <!-- List of song genres -->
+    <!-- List of songs -->
     <div class="flex flex-wrap gap-2 mt-auto">
-      <span *ngFor="let genre of song.genre"
+      <span *ngFor="let songTitles of artist.songTitles"
         class="text-xs text-gray-800 bg-gray-100 border border-gray-300 rounded-full px-2 py-0.5">
-        {{ genre }}
+        {{ songTitles }}
       </span>
     </div>
 

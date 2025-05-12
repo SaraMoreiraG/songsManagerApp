@@ -1,4 +1,4 @@
-<div *ngIf="song" class="max-w-md mx-auto p-4 space-y-4">
+<div *ngIf="artist" class="max-w-md mx-auto p-4 space-y-4">
 	<!-- Back button -->
 	<div class="mb-2">
 		<button (click)="goBack()" class="text-sm text-black underline hover:text-gray-800 transition">
@@ -8,33 +8,33 @@
 
 	<!-- Song title and artist -->
 	<h2 class="text-lg font-semibold text-black mb-2">
-		{{ song.title }} ({{ song.artistName }})
+		{{ artist.name }}
 	</h2>
 
-	<!-- Poster image as background (placeholder style) -->
-		<div class="w-full aspect-video bg-gray-200 mb-2" [style.backgroundImage]="'url(' + song.poster + ')'"
+	<!-- Image as background (placeholder style) -->
+		<div class="w-full aspect-video bg-gray-200 mb-2" [style.backgroundImage]="'url(' + artist.img + ')'"
 		style="background-size: cover; background-position: center;">
 	  </div>
 
-	<!-- Genres -->
+	<!-- Songs -->
 	<div class="flex flex-wrap gap-2">
-		<span *ngFor="let genre of song.genre"
+		<span *ngFor="let songTitles of artist.songTitles"
 			class="text-xs text-gray-800 bg-gray-100 border border-gray-300 rounded-full px-2 py-0.5">
-			#{{ genre }}
+			#{{ songTitles }}
 		</span>
 	</div>
 
 	<!-- Song details -->
 	<div class="mb-2 text-sm text-gray-700">
-		<p><strong>Year:</strong> {{ song.year }}</p>
-		<p *ngIf="song.duration"><strong>Duration:</strong> {{ song.duration }}</p>
-		<p *ngIf="song.rating"><strong>Rating:</strong> {{ song.rating }}/10</p>
+		<p><strong>Born city:</strong> {{ artist.bornCity }}</p>
+		<p *ngIf="artist.birthDate"><strong>Birth date:</strong> {{ artist.birthDate }}</p>
+		<p *ngIf="artist.rating"><strong>Rating:</strong> {{ artist.rating }}/10</p>
 	</div>
 
 	<!-- Action buttons: Edit & Delete -->
 	<div class="mt-4 flex justify-end gap-4">
 		<!-- Edit button -->
-		<a [routerLink]="['/songs/edit', song.id]"
+		<a [routerLink]="['/artists/edit', artist.id]"
 			class="w-10 h-10 flex items-center justify-center border border-gray-400 rounded-full text-black hover:bg-gray-200 transition"
 			title="Edit">
 			<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
@@ -45,7 +45,7 @@
 		</a>
 
 		<!-- Delete button -->
-		<button (click)="deleteSong()"
+		<button (click)="deleteArtist()"
 			class="w-10 h-10 flex items-center justify-center border border-gray-400 rounded-full text-black hover:bg-gray-200 transition"
 			title="Delete">
 			<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"

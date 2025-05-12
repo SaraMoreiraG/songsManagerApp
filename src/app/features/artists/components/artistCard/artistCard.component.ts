@@ -1,19 +1,19 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Song } from '../../models/song.model';
+import { Artist } from '../../models/artist.model';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-song-card',
+  selector: 'app-artist-card',
   standalone: true,
   imports: [CommonModule, RouterModule],
-  templateUrl: './songCard.component.html'
+  templateUrl: './artistCard.component.html'
 })
-export class SongCardComponent {
-  @Input() song!: Song;
+export class ArtistCardComponent {
+  @Input() artist!: Artist;
   @Output() clicked = new EventEmitter<string>();
 
   onClick() {
-    this.clicked.emit(this.song.id);
+    this.clicked.emit(this.artist.id);
   }
 }

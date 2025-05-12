@@ -1,35 +1,31 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { SongsApiService } from '../../services/songsApi.service';
-import { Song } from '../../models/song.model';
+import { Router } from '@angular/router';
+import { SongStore } from '../../state/song.store';
 import { SongCardComponent } from '../../components/songCard/songCard.component';
 
 @Component({
   selector: 'app-song-list',
   standalone: true,
-  imports: [CommonModule, RouterModule, SongCardComponent],
+  imports: [CommonModule, SongCardComponent],
   templateUrl: './songList.component.html'
 })
-export class SongListComponent implements OnInit {
-  // Injecting SongsApiService to interact with the API
-  private readonly songsApi = inject(SongsApiService);
+export class SongListComponent {
+  private router = inject(Router);
+  public store = inject(SongStore);
 
-  // Array to store the list of songs
-  songs: Song[] = [];
+  // Accedemos directamente al signal computado
+  public songs = this.store.songs;
 
-  ngOnInit(): void {
-    // Fetching the list of songs when the component is initialized
-    this.songsApi.getSongs().subscribe(data => {
-      this.songs = data; // Assign the fetched songs to the songs array
-    });
+  constructor() {
+    this.store.loadAll(); // Carga inicial de canciones
   }
 
-  // Method to delete a song by its ID
-  deleteSong(id: number) {
-    this.songsApi.deleteSong(id).subscribe(() => {
-      // Filtering out the deleted song from the songs array
-      this.songs = this.songs.filter(song => song.id !== id);
-    });
+  goToDetail(id: string) {
+    this.router.navigate(['/songs', id]);
+  }
+
+  goToCreateForm() {
+    this.router.navigate(['/songs/new']);
   }
 }
