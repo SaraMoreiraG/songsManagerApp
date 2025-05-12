@@ -121,6 +121,6 @@ export class SongFormComponent {
 
   // Navigates back to the previous page
   goBack() {
-    this.router.navigate(['../'], { relativeTo: this.route });
+    this.router.navigate([this.isEditMode ? `/songs/${this.songId}` : '/songs']);
   }
 }

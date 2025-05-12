@@ -39,7 +39,7 @@ export class SongStore {
   // Select a song by ID and attach the artist name
   selectById(id: string): void {
     this.songApi.getById(id).subscribe(song => {
-      this.artistApi.getById(Number(song.artist)).subscribe(artist => {
+      this.artistApi.getById(song.artist).subscribe(artist => {
         const enrichedSong = {
           ...song,
           artistName: artist.name
@@ -53,7 +53,7 @@ export class SongStore {
   // Update an existing song and sync the updated artist name
   updateSong(song: Song): void {
     this.songApi.update(song.id, song).subscribe(updated => {
-      this.artistApi.getById(Number(updated.artist)).subscribe(artist => {
+      this.artistApi.getById(updated.artist).subscribe(artist => {
         const enrichedUpdated = {
           ...updated,
           artistName: artist.name

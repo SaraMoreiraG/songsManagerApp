@@ -15,7 +15,7 @@ export class ArtistApiService {
     return this.http.get<Artist[]>(this.baseUrl);
   }
 
-  getById(id: number): Observable<Artist> {
+  getById(id: string): Observable<Artist> {
     return this.http.get<Artist>(`${this.baseUrl}/${id}`);
   }
 
@@ -23,11 +23,11 @@ export class ArtistApiService {
     return this.http.post<Artist>(this.baseUrl, artist);
   }
 
-  update(id: number, artist: Artist): Observable<Artist> {
+  update(id: string, artist: Artist): Observable<Artist> {
     return this.http.put<Artist>(`${this.baseUrl}/${id}`, artist);
   }
 
-  delete(id: number): Observable<void> {
+  delete(id: string): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/${id}`);
   }
 }
