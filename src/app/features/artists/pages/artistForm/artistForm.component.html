@@ -3,43 +3,43 @@
 
 		<!-- Name Field -->
 		<div>
-			<label class="block text-sm text-gray-800 mb-1">Name</label>
-			<input formControlName="name" type="text" placeholder="Enter the artist name"
+			<label class="block text-sm text-gray-800 mb-1">{{ 'Name' | translate }}</label>
+			<input formControlName="name" type="text" [placeholder]="'addName' | translate"
 				class="w-full border-b border-gray-500 bg-transparent text-black placeholder-gray-500 focus:outline-none focus:border-black pb-2" />
 			<div *ngIf="form.get('name')?.touched && form.get('name')?.invalid" class="text-xs text-red-600 mt-1">
-				Name is required.
+				{{ 'nameWarning' | translate }}
 			</div>
 		</div>
 
 		<!-- Born City Field -->
 		<div>
-			<label class="block text-sm text-gray-800 mb-1">Born City</label>
-			<input formControlName="bornCity" type="text" placeholder="Enter the artist born city"
+			<label class="block text-sm text-gray-800 mb-1">{{ 'BornCity' | translate }}</label>
+			<input formControlName="bornCity" type="text" [placeholder]="'addBornCity' | translate"
 				class="w-full border-b border-gray-500 bg-transparent text-black placeholder-gray-500 focus:outline-none focus:border-black pb-2" />
 			<div *ngIf="form.get('bornCity')?.touched && form.get('bornCity')?.invalid"
 				class="text-xs text-red-600 mt-1">
-				Born city is required.
+				{{ 'bornCityWarning' | translate }}
 			</div>
 		</div>
 
 		<!-- Birth Date Field -->
 		<div>
-			<label class="block text-sm text-gray-800 mb-1">Birth Date</label>
-			<input formControlName="birthDate" type="text" placeholder="Enter the artist birth date"
+			<label class="block text-sm text-gray-800 mb-1">{{ 'BirthDate' | translate }}</label>
+			<input formControlName="birthDate" type="text" [placeholder]="'addBirthDate' | translate"
 				class="w-full border-b border-gray-500 bg-transparent text-black placeholder-gray-500 focus:outline-none focus:border-black pb-2" />
 			<div *ngIf="form.get('birthDate')?.touched && form.get('birthDate')?.invalid"
 				class="text-xs text-red-600 mt-1">
-				Birth date is required.
+				{{ 'birthDateWarning' | translate }}
 			</div>
 		</div>
 
 		<!-- Rating Field -->
 		<div>
-			<label class="block text-sm text-gray-800 mb-1">Rating</label>
-			<input formControlName="rating" type="number" min="0" max="10" placeholder="Rate from 0 to 10"
+			<label class="block text-sm text-gray-800 mb-1">{{ 'Rating' | translate }}</label>
+			<input formControlName="rating" type="number" min="0" max="10" [placeholder]="'addRatting' | translate"
 				class="w-full border-b border-gray-500 bg-transparent text-black placeholder-gray-500 focus:outline-none focus:border-black pb-2" />
 			<div *ngIf="form.get('rating')?.touched && form.get('rating')?.invalid" class="text-xs text-red-600 mt-1">
-				Rating must be between 0 and 10.
+				{{ 'ratingWarning' | translate }}
 			</div>
 		</div>
 
@@ -47,10 +47,10 @@
 		<div class="flex justify-end gap-2 pt-4">
 			<button type="button" (click)="goBack()"
 				class="bg-white border border-gray-500 text-black px-4 py-2 rounded hover:bg-gray-100">
-				Cancel
+				{{ 'Cancel' | translate }}
 			</button>
 			<button type="submit" class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800">
-				Save
+				{{ 'Save' | translate }}
 			</button>
 		</div>
 	</form>

@@ -4,6 +4,7 @@
 	"Duration": "Duración",
 	"Rating": "Puntuación",
 	"addRatting": "Puntua del 0 al 10",
+	"ratingWarning": "La puntuación es obligatoria",
 	"Songs": "Canciones",
 	"Title": "Título",
 	"addSongTitle": "Añade el nombre de la canción",
@@ -14,8 +15,15 @@
 	"addGenre": "Añade un género",
 	"durationWarning": "La duración es obligatoria",
 	"yearWarning": "El año debe estar entre 1900 y",
-	"ratingWarning": "La puntuación es obligatoria",
 	"Cancel": "Cancelar",
-	"Save": "Guardar"
-
+	"Save": "Guardar",
+	"BornCity": "Ciudad de nacimiento",
+	"addBornCity": "Añade la ciudad de nacimiento",
+	"bornCityWarning": "La ciudad de nacimiento es obligatoria",
+	"BirthDate": "Fecha de nacimiento",
+	"addBirthDate": "Añade fecha de nacimiento",
+	"birthDateWarning": "La fecha de nacimiento es obligatoria",
+	"Name": "Nombre",
+	"addName": "Añade el nombre del artista",
+	"nameWarning": "El nombre es obligatorio"
 }
