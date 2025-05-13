@@ -2,19 +2,21 @@ import { Component, effect, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { SpinnerComponent } from '../../../../shared/components/spinner/spinner.component';
 import { SongStore } from '../../state/song.store';
 import { Song } from '../../models/song.model';
 
 @Component({
   selector: 'app-song-detail',
   standalone: true,
-  imports: [CommonModule, RouterModule, TranslateModule],
+  imports: [CommonModule, RouterModule, TranslateModule, SpinnerComponent],
   templateUrl: './songDetail.component.html'
 })
 export class SongDetailComponent {
   private store = inject(SongStore);
   private router = inject(Router);
   private route = inject(ActivatedRoute);
+  public isLoading = this.store.isLoading;
 
   song: Song | null = null;
 

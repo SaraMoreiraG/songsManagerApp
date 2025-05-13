@@ -25,5 +25,8 @@
 	"birthDateWarning": "La fecha de nacimiento es obligatoria",
 	"Name": "Nombre",
 	"addName": "Añade el nombre del artista",
-	"nameWarning": "El nombre es obligatorio"
+	"nameWarning": "El nombre es obligatorio",
+	"Loading": "Cargando",
+	"loadingMessage": "No tardará mucho",
+	"Loading...": "Cargando"
 }
